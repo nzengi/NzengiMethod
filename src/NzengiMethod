@@ -1,0 +1,12 @@
+#ifndef NZENGI_METHOD_H
+#define NZENGI_METHOD_H
+
+class NzengiMethod {
+public:
+    double dynamicParameters(double x, double& alpha, int& k);
+    double fractalDecomposition(double x, int depth);
+    double errorCorrection(double initialResult, double expectedResult, int iterations);
+    double compute(double x, int n, int depth);
+};
+
+#endif
