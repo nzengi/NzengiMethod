@@ -1,18 +1,14 @@
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-### 4. **Optional: Makefile**
-
-If you prefer to use `make`, here's a simple `Makefile`:
-
-```Makefile
-CC = g++
-CFLAGS = -std=c++11 -Wall
-SOURCES = src/main.cpp src/NzengiMethod.cpp
-TARGET = NzengiMethod
+TARGET = nzengi_method
+SRCS = Main.cpp DynamicParameters.cpp FractalDecomposition.cpp ErrorCorrection.cpp Compute.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)
 
-$(TARGET): $(SOURCES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(OBJS) $(TARGET)
