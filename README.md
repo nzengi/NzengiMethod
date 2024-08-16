@@ -16,3 +16,6 @@ You can build this project using `g++` or any C++ compiler. If you have `make` i
 
 ```sh
 g++ -o NzengiMethod src/main.cpp src/NzengiMethod.cpp -lm
+```
+
+I am working on!
