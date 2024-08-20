@@ -2,14 +2,18 @@
 #include "NzengiMethod.h"
 
 int main() {
-    NzengiMethod nzengi;
-    
-    double x = 1e6;  // Example input number
-    int n = 2;       // Example exponent
-    int depth = 5;   // Depth of fractal decomposition
-    
-    double result = nzengi.compute(x, n, depth);
-    std::cout << "Nzengi Method result for x=" << x << ", n=" << n << ", depth=" << depth << ": " << result << std::endl;
-    
+    try {
+        NzengiMethod method;
+
+        double x = 256;
+        int n = 5;
+        int depth = 3;
+
+        double result = method.compute(x, n, depth);
+        std::cout << "Final Result: " << result << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
     return 0;
 }
