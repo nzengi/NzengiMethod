@@ -1,5 +1,6 @@
 #include <cmath>
-#include <algorithm> // For std::max and std::floor
+#include <algorithm>
+#include <stdexcept>
 #include "NzengiMethod.h"
 
 // Calculate dynamic parameters based on the input value x
@@ -17,11 +18,14 @@ double NzengiMethod::fractalDecomposition(double x, int depth) {
     if (depth < 0) {
         throw std::invalid_argument("Depth must be non-negative");
     }
-    if (depth == 0) {
-        return std::sqrt(x);
-    } else {
-        return std::pow(fractalDecomposition(std::sqrt(x), depth - 1), 2);
+    double result = x;
+    for (int i = 0; i < depth; ++i) {
+        result = std::sqrt(result);
     }
+    for (int i = 0; i < depth; ++i) {
+        result = std::pow(result, 2);
+    }
+    return result;
 }
 
 // Correct the result by iterating and adjusting based on the error
